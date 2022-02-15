@@ -14,8 +14,8 @@ class CustomUserManager(BaseUserManager):
             print(f'{k}: {v}')
         email = self.normalize_email(email)
         # if extra_fields.get('image'):
-        image = get_watermarked_image(extra_fields['image'])
-        user = self.model(username=username, email=email, image=image)
+        # image = get_watermarked_image(extra_fields['image'])
+        user = self.model(username=username, email=email, **extra_fields)
         # else:
         # user = self.model(username=username, email=email, **extra_fields)
         user.set_password(password)
