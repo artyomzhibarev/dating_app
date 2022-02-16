@@ -1,4 +1,4 @@
-from io import StringIO
+from io import BytesIO
 from PIL import Image
 import os
 from django.conf import settings
@@ -12,8 +12,7 @@ def get_watermarked_image(image: Image):
     size = tuple(map(lambda x: (x * 20) // 100, image.size))
     watermark.thumbnail(size)
     image.paste(watermark, (10, 10))
-    buffer = StringIO()
-    image.save(fp=buffer, format='JPEG')
-    print('Image must be watermarked')
-    print(type(ContentFile(buffer.getvalue())))
-    return ContentFile(buffer.getvalue())
+    img_io = BytesIO()
+    image.save(fp=img_io, format='JPEG', quality=100)
+    print(f'Image {image} must be watermarked')
+    return ContentFile(img_io.getvalue(), f'{image.filename}_watermarked.jpg')

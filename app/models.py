@@ -10,14 +10,12 @@ class CustomUserManager(BaseUserManager):
     def create_user(self, username, email, password=None, **extra_fields):
         if not username and email:
             raise ValueError(_('The username and email must be set'))
-        for k, v in extra_fields.items():
-            print(f'{k}: {v}')
         email = self.normalize_email(email)
-        # if extra_fields.get('image'):
-        # image = get_watermarked_image(extra_fields['image'])
-        user = self.model(username=username, email=email, **extra_fields)
-        # else:
-        # user = self.model(username=username, email=email, **extra_fields)
+        data = {'username': username, 'email': email}
+        if extra_fields.get('image'):
+            image = get_watermarked_image(extra_fields['image'])
+            data.update({'image': image})
+        user = self.model(**data)
         user.set_password(password)
         for k, v in user.__dict__.items():
             print(f'{k}: {v}')
