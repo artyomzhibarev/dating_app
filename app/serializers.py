@@ -1,7 +1,5 @@
-import django
-from django.db import IntegrityError
+from django.db import models
 from rest_framework import serializers
-from django.core import exceptions
 
 from app.models import User, Match
 
@@ -44,3 +42,11 @@ class MatchSerializer(serializers.ModelSerializer):
                 liked_user_id=validated_data['liked_user_id'],
             )
             return match
+
+
+class UserListSerializer(serializers.ModelSerializer):
+    matches = models.ForeignKey(Match, related_name='user_matches', on_delete=models.CASCADE)
+
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'email', 'gender', 'user_matches')

@@ -5,7 +5,9 @@ from . import views
 
 urlpatterns = [
     path('api/clients/create/', views.CreateUser.as_view()),
-    path('api/clients/<int:pk>/match', views.CreateMatch.as_view())
+    path('api/clients/<int:pk>/match', views.CreateMatch.as_view()),
+    path('api/list/', views.UserList.as_view()),
+
 ]
 
 if settings.DEBUG:

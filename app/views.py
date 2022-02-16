@@ -2,9 +2,9 @@ from rest_framework import status, generics
 from rest_framework.permissions import IsAuthenticated
 
 from app.models import Match, User
-from app.serializers import UserSerializer, MatchSerializer
+from app.serializers import UserSerializer, MatchSerializer, UserListSerializer
 from rest_framework.response import Response
-
+from django_filters import rest_framework as filters
 from app.services.send_email_to_user import check_match_between_users, send_email_to_user
 
 
@@ -47,4 +47,9 @@ class CreateMatch(generics.CreateAPIView):
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# liked you! Participant\'s mail: {user.email}'
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserListSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ('gender', 'first_name', 'last_name')

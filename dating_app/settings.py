@@ -32,7 +32,6 @@ AUTH_USER_MODEL = 'app.User'
 # Application definition
 
 INSTALLED_APPS = [
-    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'rest_framework',
+    'django_filters',
 
 ]
 
@@ -147,3 +148,9 @@ CELERY_RESULT_SERIALIZER = 'json'
 
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}
