@@ -2,6 +2,7 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from django.db import models
+from django.conf import settings
 
 from app.utils.watermark import get_watermarked_image
 
@@ -49,3 +50,17 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+
+
+class Match(models.Model):
+    from_user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='user_matches')  # who liked
+    liked_user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE)  # who was liked
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'From: {self.from_user}, To: {self.liked_user}'
