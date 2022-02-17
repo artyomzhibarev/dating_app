@@ -1,0 +1,112 @@
+[
+  {
+    "model": "app.user",
+    "pk": 2,
+    "fields": {
+      "password": "1",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "new_user1",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-02-15T21:08:21Z",
+      "image": "user_images/photo_2022-01-29_14.35.27_u4d13aA.jpeg",
+      "gender": "male",
+      "longitude": "41.499498",
+      "latitude": "-81.695392",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "app.user",
+    "pk": 3,
+    "fields": {
+      "password": "dsfjrf3439rj",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "new_user_from_rest",
+      "first_name": "",
+      "last_name": "",
+      "email": "newuser@fromrest.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-02-15T23:02:19Z",
+      "image": "default_user_image.png",
+      "gender": "female",
+      "longitude": "41.499498",
+      "latitude": "-81.695392",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "app.user",
+    "pk": 4,
+    "fields": {
+      "password": "dsfjrf3439rj",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "new_user_from_rest2",
+      "first_name": "",
+      "last_name": "",
+      "email": "newuser@fromrest2.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-02-15T23:03:26Z",
+      "image": "default_user_image.png",
+      "gender": "male",
+      "longitude": "41.499498",
+      "latitude": "-81.499495",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "app.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$2rZDRGhiBZqi9d8Fh5UBT7$Oqr0zW/JnayqYVRwTbAd3WewFhV0VSti3R8UpYWWz0A=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user_from_shell7",
+      "first_name": "Artyom",
+      "last_name": "",
+      "email": "user@fromshell7.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-02-16T08:01:54Z",
+      "image": "user_images/img.jpg",
+      "gender": "female",
+      "longitude": "41.499498",
+      "latitude": "-81.695391",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "app.user",
+    "pk": 6,
+    "fields": {
+      "password": "1",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "new_user3",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-02-17T12:26:47Z",
+      "image": "default_user_image.png",
+      "gender": "male",
+      "longitude": "61.499498",
+      "latitude": "-12.695392",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "model": "app.match",
+    "pk": 1,
+    "fields": {
+      "from_user": 1,
+      "liked_user": 2,
+      "created_at": "2022-02-16T18:53:33.340Z"
+    }
+  },
+  {
+    "model": "app.match",
+    "pk": 2,
+    "fields": {
+      "from_user": 2,
+      "liked_user": 3,
+      "created_at": "2022-02-16T20:16:01.265Z"
+    }
+  },
+  {
+    "model": "app.match",
+    "pk": 3,
+    "fields": {
+      "from_user": 3,
+      "liked_user": 4,
+      "created_at": "2022-02-16T21:40:00.328Z"
+    }
+  }
+]
