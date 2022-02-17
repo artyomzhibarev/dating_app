@@ -4,7 +4,7 @@ from .models import User, Match
 
 @admin.register(User)
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'username', 'email', 'date_joined')
+    list_display = ('pk', 'username', 'email', 'date_joined', 'longitude', 'latitude')
     list_filter = ('date_joined',)
 
 
