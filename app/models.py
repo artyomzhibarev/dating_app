@@ -4,9 +4,6 @@ from django.db.models.expressions import RawSQL
 from django.utils.translation import gettext_lazy as _
 from django.db import models
 from django.conf import settings
-import math
-from django.db.backends.signals import connection_created
-from django.dispatch import receiver
 
 from app.utils.watermark import get_watermarked_image
 

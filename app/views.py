@@ -2,7 +2,7 @@ from django.db.models.expressions import RawSQL
 from rest_framework import status, generics
 from rest_framework.permissions import IsAuthenticated
 from django.db.models import Q
-from app.models import Match, User
+from app.models import User
 from app.serializers import UserSerializer, MatchSerializer, UserListSerializer
 from rest_framework.response import Response
 from django_filters import rest_framework as filters
