@@ -10,8 +10,10 @@ from app.utils.watermark import get_watermarked_image
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, username, email, password=None, **extra_fields):
-        if not username and email:
+        if not username:
             raise ValueError(_('The username and email must be set'))
+        if not email:
+            raise ValueError(_('The email and email must be set'))
         email = self.normalize_email(email)
         if extra_fields.get('image'):
             image = get_watermarked_image(extra_fields['image'])
