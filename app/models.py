@@ -13,15 +13,16 @@ class CustomUserManager(BaseUserManager):
         if not username and email:
             raise ValueError(_('The username and email must be set'))
         email = self.normalize_email(email)
-        data = {'username': username, 'email': email}
         if extra_fields.get('image'):
             image = get_watermarked_image(extra_fields['image'])
-            data.update({'image': image})
-        user = self.model(**data)
+            user = self.model(username=username, email=email, image=image)
+        else:
+            user = self.model(username=username, email=email)
         user.set_password(password)
-        # for k, v in user.__dict__.items():
-        #     print(f'{k}: {v}')
+        for k, v in user.__dict__.items():
+            print(f'{k}: {v}')
         user.save()
+        return user
 
     def create_superuser(self, username, email, password, **extra_fields):
         """

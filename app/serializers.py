@@ -12,6 +12,9 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email', 'image', 'password']
         extra_kwargs = {'password': {'write_only': True}}
 
+    def create(self, validated_data):
+        return User.objects.create_user(**validated_data)
+
 
 class MatchSerializer(serializers.ModelSerializer):
     from_user = serializers.ReadOnlyField(source='from_user.username')
